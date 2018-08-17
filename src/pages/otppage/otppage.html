@@ -1,0 +1,28 @@
+<ion-header no-border>
+</ion-header>
+
+<ion-content padding class="masters">
+  <img class="bullets" src="assets/imgs/bullets2.png" alt="Sheq Wallet">
+  <img class="logo" src="assets/imgs/title-logo.png" alt="Sheq Wallet">
+  <h5 text-center ion-text color="accent">We sent you a Verification Code</h5>
+  <h5 text-center ion-text color="accent">on <b>{{phoneNumber}}</b></h5>
+  <h5 text-center ion-text color="accent">Check your SMS Inbox.</h5>
+  <br>
+  <br>
+  <div class="login" text-center>
+<ion-item margin-bottom style="background: transparent">
+  <ion-label color="lighttext" floating>Enter Verification Code</ion-label>
+    <ion-input  type="number" [(ngModel)]="OTP"></ion-input>
+   
+  </ion-item>
+  <p ion-text color="danger">{{replyMsg}}</p>
+
+  <button ion-button color="primary" text-center round (click)="verOTP()">Verify Mobile Number</button>
+  <button text-left ion-button clear color="primary" (click)="GenOTP()">Didn't Recieve Code?</button>
+  <!-- <button text-left ion-button clear color="primary" navPop>Edit Mobile Number.</button> -->
+
+  </div>
+        
+
+
+</ion-content>

@@ -3,28 +3,65 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { Camera } from '@ionic-native/camera';
+import { AnimationService, AnimatesDirective } from 'css-animator';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { CreatepostPage } from '../pages/createpost/createpost';
+import { RestProvider } from '../providers/rest/rest';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { IonicStorageModule } from '@ionic/storage';
+import { UserData } from '../providers/user-data';
+import { ProfileProvider } from '../providers/profileProvider';
+import { HeaderMenuComponent } from '../components/header-menu/header-menu';
+import { ImageuploaderProvider } from '../providers/imageuploader/imageuploader';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { CurrenciesProvider } from '../providers/currencies/currencies';
+import { Contacts } from '@ionic-native/contacts';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { CallNumber } from '@ionic-native/call-number';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CreatepostPage,
+    HeaderMenuComponent,
+    AnimatesDirective,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CreatepostPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    HttpClientModule,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    RestProvider,
+    AuthenticationProvider,
+    UserData,
+    ProfileProvider,
+    ImageuploaderProvider,
+    Camera,
+    AnimationService,
+    QRScanner,
+    Contacts,
+    SocialSharing,
+    CurrenciesProvider,
+    CallNumber,
+    FilePath,
+  ],
 })
 export class AppModule {}
